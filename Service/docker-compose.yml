@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    container_name: auth-service
+
+  gateway:
+    build:
+      context: ./gateway/app
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    container_name: gateway
